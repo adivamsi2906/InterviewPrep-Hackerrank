@@ -1,0 +1,25 @@
+#include <stdio.h>
+int count=0;
+int main()
+{
+    int n;
+    scanf("%d",&n);
+    void TOH(int n,char src,char dest,char aux);
+    TOH(n,'A','C','B');
+    printf("steps=%d",count);
+    return 0;
+}
+void TOH(int n,char src,char dest,char aux)
+{
+    if(n==1){
+        printf("move disk1 from %c to %c\n",src,dest);
+        count+=1;
+        return;
+    }
+    TOH(n-1,src,aux,dest);
+    printf("move disk%d from %c to %c\n",n,src,dest);
+    count+=1;
+    TOH(n-1,aux,dest,src);
+}
+
+
